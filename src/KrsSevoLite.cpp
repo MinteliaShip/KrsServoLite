@@ -1,4 +1,4 @@
-#include "KRSservoLite.hpp"
+#include "KrsSevoLite.h"
 
 KrsSevoLite::KrsSevoLite(int Rx,int Tx,int En,unsigned long int baudRate,HardwareSerial* serialPort_){
   serialPort = serialPort_;
