@@ -1,21 +1,21 @@
-#include <KrsSevoLite.h>
+#include <KrsServoLite.h>
 
-//myKrsSevo( [Rxピン] , [Txピン] , [Enピン] , [ボーレート(通信速度)] );
-KrsSevoLite myKrsSevo(22,19,23,115200);
+//myKrsServo( [Rxピン] , [Txピン] , [Enピン] , [ボーレート(通信速度)] );
+KrsServoLite myKrsServo(22,19,23,115200);
 
 void setup() {
   Serial.begin(115200);
 
-//myKrsSevo.setDEG( [度数] ).sendICS( [サーボID] );
-  myKrsSevo.setDEG(45).sendICS(0);
+//myKrsServo.setDEG( [度数] ).sendICS( [サーボID] );
+  myKrsServo.setDEG(45).sendICS(0);
 
-//myKrsSevo.setRAD( [弧度法] ).sendICS( [サーボID] );
-  myKrsSevo.setRAD(PI/4.0).sendICS(0);
+//myKrsServo.setRAD( [弧度法] ).sendICS( [サーボID] );
+  myKrsServo.setRAD(PI/4.0).sendICS(0);
 
 }
 
 void loop() {
-  Serial.println(myKrsSevo.setFREE().sendICS(0));
+  Serial.println(myKrsServo.setFREE().sendICS(0));
 }
 
 
@@ -25,8 +25,8 @@ void loop() {
 [オブジェクト].[角度指定].sendICS( [サーボID] );
 
 ・例
-myKrsSevo.setDEG(45).sendICS(0);
-オブジェクト  :myKrsSevo
+myKrsServo.setDEG(45).sendICS(0);
+オブジェクト  :myKrsServo
 角度         :45°
 サーボID     :0番
 

@@ -1,6 +1,6 @@
-#include "KrsSevoLite.h"
+#include "KrsServoLite.h"
 
-KrsSevoLite::KrsSevoLite(int Rx,int Tx,int En,unsigned long int baudRate,HardwareSerial* serialPort_){
+KrsServoLite::KrsServoLite(int Rx,int Tx,int En,unsigned long int baudRate,HardwareSerial* serialPort_){
   serialPort = serialPort_;
   serialPort -> begin(baudRate,SERIAL_8E1,Rx,Tx);
   serialPort -> setTimeout(TIMEOUT);  
@@ -14,7 +14,7 @@ KrsSevoLite::KrsSevoLite(int Rx,int Tx,int En,unsigned long int baudRate,Hardwar
 }
 
 
-bool KrsSevoLite::exchangeData(char *txByte, char txLen, char *rxByte, char rxLen){
+bool KrsServoLite::exchangeData(char *txByte, char txLen, char *rxByte, char rxLen){
   digitalWrite(EnPin, HIGH);
   serialPort -> flush(); 
   serialPort -> write(txByte, txLen);
@@ -27,12 +27,12 @@ bool KrsSevoLite::exchangeData(char *txByte, char txLen, char *rxByte, char rxLe
 }
 
 
-KrsSevoLite& KrsSevoLite::setFREE() {pos = 0;return *this;}
-KrsSevoLite& KrsSevoLite::setICS(unsigned int ics) {pos = ics;return *this;}
-KrsSevoLite& KrsSevoLite::setDEG(double deg) {pos = (unsigned int)((deg * 800.0) / 27.0) + 7500;return *this;}
-KrsSevoLite& KrsSevoLite::setRAD(double rad) {pos = (unsigned int)(rad * 1697.6527263 + 7500);return *this;}
+KrsServoLite& KrsServoLite::setFREE() {pos = 0;return *this;}
+KrsServoLite& KrsServoLite::setICS(unsigned int ics) {pos = ics;return *this;}
+KrsServoLite& KrsServoLite::setDEG(double deg) {pos = (unsigned int)((deg * 800.0) / 27.0) + 7500;return *this;}
+KrsServoLite& KrsServoLite::setRAD(double rad) {pos = (unsigned int)(rad * 1697.6527263 + 7500);return *this;}
 
-unsigned long KrsSevoLite::sendICS(int ID,int sendOnly_){
+unsigned long KrsServoLite::sendICS(int ID,int sendOnly_){
   if (!serialPort) {
     Serial.print("[E] ポートを設定していない");
     return 1;

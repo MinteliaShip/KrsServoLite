@@ -1,6 +1,6 @@
 /*
-  KrsSevoLite- 近藤サーボを動かすclass
-  作者 : MinteliaShip　最終更新 : 2025/10/07
+  KrsServoLite- 近藤サーボを動かすclass
+  作者 : MinteliaShip　最終更新 : 2025/10/08
 */
 
 #ifndef KRS_SERVO_LITE_H
@@ -9,20 +9,20 @@
 #include <HardwareSerial.h>
 #include <Arduino.h> 
 
-class KrsSevoLite {
+class KrsServoLite {
 
   public:
 
     //セットアップ
-    KrsSevoLite(int Rx,int Tx,int En,unsigned long int baudRate,HardwareSerial* serialPort_ = &Serial2);
+    KrsServoLite(int Rx,int Tx,int En,unsigned long int baudRate,HardwareSerial* serialPort_ = &Serial2);
 
-    KrsSevoLite& setFREE();
+    KrsServoLite& setFREE();
     // ICS規格の角度数値
-    KrsSevoLite& setICS(unsigned int ics);
+    KrsServoLite& setICS(unsigned int ics);
     // 度数法の数値
-    KrsSevoLite& setDEG(double deg);
+    KrsServoLite& setDEG(double deg);
     // 弧度法の数値
-    KrsSevoLite& setRAD(double rad);
+    KrsServoLite& setRAD(double rad);
 
     unsigned long sendICS(int ID,int sendOnly_ = -1);
 
