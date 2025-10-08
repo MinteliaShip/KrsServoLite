@@ -1,4 +1,4 @@
-# KrsSevoLite
+# KrsServoLite
 近藤化学のKRSサーボモータをESP32(M5Atom等)で動かすためのライブラリ。
 
 KRSに指令送信と角度受信を行うことができる。
